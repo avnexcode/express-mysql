@@ -1,0 +1,29 @@
+<form class="card-body w-full" action="" method="post">
+    <div class="form-control">
+        <label class="label">
+            <span class="label-text">Name</span>
+        </label>
+        <input type="text" placeholder="name" class="input input-bordered" name="name" value="<%= user ? user.name : '' %>"/>
+    </div>
+    <div class="form-control">
+        <label class="label">
+            <span class="label-text">Email</span>
+        </label>
+        <input type="email" placeholder="email" class="input input-bordered" name="email" value="<%= user ? user.email : '' %>"/>
+    </div>
+    <div class="form-control">
+        <label class="label">
+            <span class="label-text">Phone Number</span>
+        </label>
+        <input type="text" placeholder="phone number" class="input input-bordered" name="phone" value="<%= user ? user.phone : '' %>"/>
+    </div>
+    <div class="form-control">
+        <label class="label">
+            <span class="label-text">Password</span>
+        </label>
+        <input type="password" placeholder="password" class="input input-bordered" name="password" value="password"/>
+    </div>
+    <div class="form-control mt-6">
+        <button class="btn btn-primary">Add</button>
+    </div>
+</form>

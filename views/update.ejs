@@ -1,0 +1,48 @@
+<div>
+    <a href="/dashboard" class="text-3xl">Back</a>
+</div>
+<% if (typeof(errors) !== 'undefined') { %>
+    <div class="px-10 pt-20 flex flex-col gap-2">
+            <% errors.forEach(error => { %>
+                <div role="alert" class="alert alert-error">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span><%= error.msg %></span>
+                </div>
+            <% }) %>
+    </div>
+<% } %>
+<div class="w-full flex justify-center mt-20 h-screen">
+    <div class="w-[600px]">
+        <form class="card-body w-full" action="/dashboard?_method=PUT" method="post">
+            <input type="hidden" name="id" value="<%= user.id %>">
+            <input type="hidden" name="oldName" value="<%= user.name %>">
+            <input type="hidden" name="oldEmail" value="<%= user.email %>">
+            <input type="hidden" name="oldPhone" value="<%= user.phone %>">
+            <input type="hidden" name="password" value="<%= user.password %>">
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">Name</span>
+                </label>
+                <input type="text" placeholder="name" class="input input-bordered" name="name" value="<%= user.name %>"/>
+            </div>
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">Email</span>
+                </label>
+                <input type="email" placeholder="email" class="input input-bordered" name="email" value="<%= user.email %>"/>
+            </div>
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">Phone Number</span>
+                </label>
+                <input type="text" placeholder="phone number" class="input input-bordered" name="phone" value="<%= user.phone %>"/>
+            </div>
+            <div class="form-control mt-6">
+                <button class="btn btn-primary">Update</button>
+            </div>
+        </form>
+    </div>
+</div>
